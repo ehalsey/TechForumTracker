@@ -1,0 +1,55 @@
+﻿@model TechForumTracker.Models.VisitViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Visit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VisitorBadgeNumber" class="control-label"></label>
+                <input asp-for="VisitorBadgeNumber" class="form-control" id="visitor-badge-number-input" />
+                <span asp-validation-for="VisitorBadgeNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitDate" class="control-label"></label>
+                <input asp-for="VisitDate" class="form-control" id="visit-date-input" />
+                <span asp-validation-for="VisitDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitLocation" class="control-label"></label>
+                <input asp-for="VisitLocation" class="form-control" id="visit-location-input" />
+                <span asp-validation-for="VisitLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" id="password-input" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" id="create-button" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+<environment include="Development">
+    <script src="~/js/visits-create.js" asp-append-version="true"></script>
+</environment>
+<environment exclude="Development">
+    <script src="~/js/visits-create.min.js" asp-append-version="true"></script>
+</environment>
+}
